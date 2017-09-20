@@ -24,8 +24,8 @@ get_header(); ?>
 				</header>
 
 			<?php endif; ?>			
-						
-<?php if( current_user_can('editor') || current_user_can('administrator') ): ?>
+<!-- PHP using logic "OR" operator to check if current user is logged in	 -->					
+		<?php if( current_user_can('editor') || current_user_can('administrator') ): ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -41,10 +41,10 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-<?php else: echo "<strong>You have failed me for the last time! <br>You must LOGIN to the dark side.</strong><br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg"; ?>
+		<?php else: echo "<strong>You have failed me for the last time! <br>You must LOGIN to the dark side.</strong><br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg"; ?>
 
-<?php endif; ?>
-
+		<?php endif; ?>
+<!-- PHP using logic "OR" operator PHP using logic "OR" operator to check if current user is logged in END	 -->	
 			<?php the_posts_navigation(); ?>
 
 		<?php else : ?>
