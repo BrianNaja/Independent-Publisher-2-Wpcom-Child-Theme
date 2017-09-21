@@ -15,6 +15,10 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			
+			<!-- PHP using logic "OR" operator to check if current user is logged in	 -->					
+		<?php if ( current_user_can('editor') || current_user_can('administrator') || current_user_can('member') ) {?>
+
 		
 		<?php if ( have_posts() ) : ?>
 
@@ -24,8 +28,7 @@ get_header(); ?>
 				</header>
 
 			<?php endif; ?>			
-<!-- PHP using logic "OR" operator to check if current user is logged in	 -->					
-		<?php if( current_user_can('editor') || current_user_can('administrator') ): ?>
+
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -41,10 +44,7 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-		<?php else: echo "<strong>You have failed me for the last time! <br>You must LOGIN to the dark side.</strong><br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg"; ?>
 
-		<?php endif; ?>
-<!-- PHP using logic "OR" operator PHP using logic "OR" operator to check if current user is logged in END	 -->	
 			<?php the_posts_navigation(); ?>
 
 		<?php else : ?>
@@ -54,6 +54,15 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		
+		<?php } else { echo "<strong>You have failed me for the last time! <br>You must LOGIN to the dark side.</strong>
+			<br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg <br>";
+			 wp_login_form();
+		}?>
+
+<!-- PHP using logic "OR" operator PHP using logic "OR" operator to check if current user is logged in END	 -->	
+		
 	</div><!-- #primary -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+
