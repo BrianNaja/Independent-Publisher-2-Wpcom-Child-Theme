@@ -56,11 +56,11 @@ get_header(); ?>
 		</main><!-- #main -->
 		
 		<?php } else { echo "<strong>You have failed me for the last time! <br>You must LOGIN to the dark side.</strong>
-			<br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg <br>";
+			<br><img src=../wp-content/uploads/2017/09/darth_vader_rogue_one.jpg <br> <p>Add some styling to the login form below and delete Darth Vader when done</p> <br>";
 			 wp_login_form();
 		}?>
 
-<!-- PHP using logic "OR" operator PHP using logic "OR" operator to check if current user is logged in END	 -->	
+<!-- PHP using logic "OR" operator to check if current user is logged in END	 -->	
 		
 	</div><!-- #primary -->
 <?php get_sidebar(); ?>
