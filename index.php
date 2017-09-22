@@ -14,7 +14,7 @@
 	
 //  PHP using logic "! NOT" and "|| OR" operator to check if current user is logged in	 
  
-if ( !current_user_can('editor') || !current_user_can('administrator') || !current_user_can('member') ) {
+if( ! is_user_logged_in() ) {
     wp_redirect( wp_login_url() );
     exit;
 }

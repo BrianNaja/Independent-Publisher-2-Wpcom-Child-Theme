@@ -27,3 +27,16 @@ function my_login_logo_url_title() {
     return 'Pittsburgh Firefighters';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+// Re-direct specifc user roles
+
+function members_login_redirect($redirect_to, $request, $user)
+{
+    $role = 'member'; // other roles can be added
+    if(in_array($role, $user->roles))
+    {
+        return './members';
+    }
+}
+
+add_filter( 'login_redirect', 'members_login_redirect', 10, 3);
